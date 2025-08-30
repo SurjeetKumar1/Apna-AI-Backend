@@ -23,7 +23,10 @@ First, we need a server to host our application.
     * Allow **HTTP** on port **80** from `Anywhere` (0.0.0.0/0). This will be used later.
 6.  Launch the instance!
 
+   <br><br>
 
+![Successful Workflow Run in GitHub Actions](https://github.com/SurjeetKumar1/Apna-AI-Backend/raw/main/assets/ec2-machine.png)
+<br><br>
 
 ### Step 2: Connect and Prepare the Server
 1.  Open a terminal in the directory where you saved your `.pem` key file.
@@ -35,6 +38,11 @@ First, we need a server to host our application.
     ```bash
     ssh -i "ApnaAI.pem"ubuntu@ec2-54-210-6-159.compute-1.amazonaws.com
     ```
+    <br>
+    
+![Successful Workflow Run in GitHub Actions](https://github.com/SurjeetKumar1/Apna-AI-Backend/blob/main/assets/connect-to-EC2.png)
+<br>
+
 4.  Once connected, update the server's package manager.
     ```bash
     sudo apt update
@@ -87,6 +95,10 @@ We need to connect our EC2 instance to GitHub so it can run our deployment jobs.
 
 ---
 
+<br><br>
+![Successful Workflow Run in GitHub Actions](https://github.com/SurjeetKumar1/Apna-AI-Backend/blob/main/assets/backend-runner-command.png)
+<br><br>
+
 ## 3. GitHub Actions Workflow Configuration ⚙️
 
 This is the automated script that will run every time you push code.
@@ -95,7 +107,7 @@ This is the automated script that will run every time you push code.
 2.  Inside it, create a file named `cicd.yml`.
 3.  Paste the following code into `cicd.yml`:
 
-   ```# 
+      ```# 
     name: Node.js CI
 
     on:
@@ -131,6 +143,9 @@ jobs:
     
     # - run: npm test
     ```
+    <br><br>
+![Successful Workflow Run in GitHub Actions](https://github.com/SurjeetKumar1/Apna-AI-Backend/blob/main/assets/backend-cicd-build.png)
+<br><br>
 
 ### Handling the `.env` file
 The workflow includes steps to back up and restore your `.env` file. You must create the `.env` file on the server manually the first time.
@@ -154,3 +169,8 @@ You can verify that the deployment was successful by accessing your API endpoint
 `(https://ec2-54-210-6-159.compute-1.amazonaws.com:8080/test)`
 
 You should see the response from your backend!
+
+
+    <br><br>
+![Successful Workflow Run in GitHub Actions](https://github.com/SurjeetKumar1/Apna-AI-Backend/blob/main/assets/backend-live.png)
+<br><br>

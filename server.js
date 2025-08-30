@@ -13,7 +13,7 @@ app.use(express.json());   //parse our incomming request
 app.use(cors());
 
 app.get("/test",(req,res)=>{
-    res.json({Json:"test was successfull!"})
+    res.json({Json:"hurrah, test was successfull!"})
 })
 
 app.use("/api",chatRoutes);

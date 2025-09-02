@@ -10,7 +10,20 @@ const PORT=8080;
 
 //these two middleware helps us when we connect our frontend to backend
 app.use(express.json());   //parse our incomming request
-app.use(cors());
+// app.use(cors());
+
+//  CORS configuration
+const allowedOrigins = [
+    "https://apna-ai-rose.vercel.app",  // your frontend
+    "http://localhost:3000"             // for local dev
+  ];
+  
+  app.use(cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"]
+  }));
 
 app.get("/test",(req,res)=>{
     res.json({Json:"hurrah, test was successfull!"})
